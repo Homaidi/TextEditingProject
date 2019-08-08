@@ -155,6 +155,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="awesome-dotnet-core\Program.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -178,6 +179,35 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="awesome-dotnet-core\.github\FUNDING.yml" />
+    <None Include="awesome-dotnet-core\.git\config" />
+    <None Include="awesome-dotnet-core\.git\description" />
+    <None Include="awesome-dotnet-core\.git\HEAD" />
+    <None Include="awesome-dotnet-core\.git\hooks\applypatch-msg.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\commit-msg.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\post-update.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\pre-applypatch.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\pre-commit.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\pre-push.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\pre-rebase.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\pre-receive.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="awesome-dotnet-core\.git\hooks\update.sample" />
+    <None Include="awesome-dotnet-core\.git\index" />
+    <None Include="awesome-dotnet-core\.git\info\exclude" />
+    <None Include="awesome-dotnet-core\.git\logs\HEAD" />
+    <None Include="awesome-dotnet-core\.git\logs\refs\heads\master" />
+    <None Include="awesome-dotnet-core\.git\logs\refs\remotes\origin\HEAD" />
+    <None Include="awesome-dotnet-core\.git\objects\pack\pack-5ac5b3abfda103fde5c5f077767f33e565078c46.idx" />
+    <None Include="awesome-dotnet-core\.git\objects\pack\pack-5ac5b3abfda103fde5c5f077767f33e565078c46.pack" />
+    <None Include="awesome-dotnet-core\.git\packed-refs" />
+    <None Include="awesome-dotnet-core\.git\refs\heads\master" />
+    <None Include="awesome-dotnet-core\.git\refs\remotes\origin\HEAD" />
+    <None Include="awesome-dotnet-core\.travis.yml" />
+    <None Include="awesome-dotnet-core\.vs\ProjectSettings.json" />
+    <None Include="awesome-dotnet-core\.vs\slnx.sqlite" />
+    <None Include="awesome-dotnet-core\contributing.md" />
+    <None Include="awesome-dotnet-core\README.md" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -206,19 +236,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
- 
-    <Folder Include="Components\" />
-    <Folder Include="Interfaces\" />
- 
+    <Content Include="awesome-dotnet-core\.gitignore" />
     <Content Include="Repos\.gitattributes" />
     <Content Include="Repos\.gitignore" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="awesome-dotnet-core\.git\objects\info\" />
+    <Folder Include="awesome-dotnet-core\.git\refs\tags\" />
+    <Folder Include="Components\" />
+    <Folder Include="Interfaces\" />
     <Folder Include="Repos\.git\objects\info\" />
     <Folder Include="Repos\.git\objects\pack\" />
     <Folder Include="Repos\.git\refs\heads\" />
     <Folder Include="Repos\.git\refs\tags\" />
- 
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
