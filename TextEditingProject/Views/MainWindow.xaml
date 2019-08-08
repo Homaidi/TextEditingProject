@@ -1,0 +1,60 @@
+﻿<Window x:Class="TextEditingProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TextEditingProject"
+        mc:Ignorable="d"
+        Title="Text Editor [By Homaidi]" Height="350" Width="525" Background="#FFF0F0F0">
+ 
+    <Grid Margin="3 ">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.4*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBox IsReadOnly="True" Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Visibility="Visible" Text="{Binding FolderPath}" x:Name="FolderDirctory" Height="30" Margin="3" TextWrapping="NoWrap"  VerticalAlignment="Stretch"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  />
+        <Button Visibility="Visible"  Grid.Row="0"    x:Name="btOpenExplorer" Click="btOpenExplorer_Click" Content="Choose a Folder" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold" HorizontalAlignment="Stretch"   HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  BorderBrush="Black" Grid.Column="2" Foreground="White"/>
+
+
+        <Grid  Grid.Row="2" Margin="0"  UseLayoutRounding="False" IsHitTestVisible="True"   VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="81"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="41"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"    ></RowDefinition>
+            </Grid.RowDefinitions>
+            <CheckBox Grid.Column="0" Grid.Row="0"      Height="auto"   x:Name="chkTextToRemove" Content="Replace" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"  Foreground="#FF02A7D3" ></CheckBox>
+            <TextBox  Grid.Column="1" Grid.Row="0"      Visibility="Visible"      x:Name="txtTextToRemove" Margin="2"     Text=""     Height="26" VerticalAlignment="Top"     />
+            <Label  Grid.Column="2" Grid.Row="0"      x:Name="lblTextToReplace" Content="With" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0" FontSize="14" Foreground="#FF02A7D3"></Label>
+            <TextBox     Grid.Column="3" Grid.Row="0"    Visibility="Visible" Margin="2"    x:Name="txtTextToReplace"    Text=""    VerticalAlignment="Stretch" Height="Auto"     />
+        </Grid>
+
+        <Grid  Grid.Row="3" Margin="0"  UseLayoutRounding="False" IsHitTestVisible="True"   VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="4"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="90"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"    ></RowDefinition>
+            </Grid.RowDefinitions>
+            <Label  Foreground="#FF02A7D3" Grid.Row="0" Grid.Column="0"    Content="Add Text" HorizontalAlignment="Stretch" Margin="2" VerticalAlignment="Stretch"     />
+            <TextBox     Grid.Column="1" Grid.Row="0"    Visibility="Visible" Margin="2"    x:Name="txtTextToAdd"    Text=""    VerticalAlignment="Stretch" Height="Auto"     />
+            <CheckBox  Foreground="#FF02A7D3" Grid.Column="2" Grid.Row="0"      Height="auto"   x:Name="chkAddTextToStart" Content="To Start" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"    ></CheckBox>
+            <CheckBox  Foreground="#FF02A7D3" Grid.Column="3" Grid.Row="0"      Height="auto"   x:Name="chkAddTextToEnd" Content="To End" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"    ></CheckBox>
+
+        </Grid>
+
+    </Grid>
+</Window>
