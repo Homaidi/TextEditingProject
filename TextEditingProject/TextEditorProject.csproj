@@ -183,13 +183,42 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Repos\.git\config" />
+    <None Include="Repos\.git\description" />
+    <None Include="Repos\.git\FETCH_HEAD" />
+    <None Include="Repos\.git\HEAD" />
+    <None Include="Repos\.git\hooks\applypatch-msg.sample" />
+    <None Include="Repos\.git\hooks\commit-msg.sample" />
+    <None Include="Repos\.git\hooks\post-update.sample" />
+    <None Include="Repos\.git\hooks\pre-applypatch.sample" />
+    <None Include="Repos\.git\hooks\pre-commit.sample" />
+    <None Include="Repos\.git\hooks\pre-push.sample" />
+    <None Include="Repos\.git\hooks\pre-rebase.sample" />
+    <None Include="Repos\.git\hooks\pre-receive.sample" />
+    <None Include="Repos\.git\hooks\prepare-commit-msg.sample" />
+    <None Include="Repos\.git\hooks\update.sample" />
+    <None Include="Repos\.git\index" />
+    <None Include="Repos\.git\info\exclude" />
+    <None Include="Repos\.git\objects\1f\f0c423042b46cb1d617b81efb715defbe8054d" />
+    <None Include="Repos\.git\objects\3c\4efe206bd0e7230ad0ae8396a3c883c8207906" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+ 
     <Folder Include="Components\" />
     <Folder Include="Interfaces\" />
+ 
+    <Content Include="Repos\.gitattributes" />
+    <Content Include="Repos\.gitignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repos\.git\objects\info\" />
+    <Folder Include="Repos\.git\objects\pack\" />
+    <Folder Include="Repos\.git\refs\heads\" />
+    <Folder Include="Repos\.git\refs\tags\" />
+ 
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
