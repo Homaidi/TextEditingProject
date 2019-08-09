@@ -128,6 +128,7 @@
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -146,7 +147,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -154,7 +155,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -205,6 +206,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+ 
+    <Folder Include="Components\" />
+    <Folder Include="Interfaces\" />
+ 
     <Content Include="Repos\.gitattributes" />
     <Content Include="Repos\.gitignore" />
   </ItemGroup>
@@ -213,6 +218,7 @@
     <Folder Include="Repos\.git\objects\pack\" />
     <Folder Include="Repos\.git\refs\heads\" />
     <Folder Include="Repos\.git\refs\tags\" />
+ 
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
