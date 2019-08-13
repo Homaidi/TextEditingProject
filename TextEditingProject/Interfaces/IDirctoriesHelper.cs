@@ -10,6 +10,6 @@ namespace TextEditingProject.Interfaces
     {
         List<String> GetDirctories(string Path);
         List<String> GetFiles(string Path);
-        List<String> GetDirctoriesAndFiles(string Path);
+        Dictionary<string, List<string>> GetDirctoriesAndFiles(string Path);
     }
 }

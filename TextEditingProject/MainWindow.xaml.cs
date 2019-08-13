@@ -1,9 +1,11 @@
-﻿using DevExpress.Mvvm;
+﻿
+using DevExpress.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,12 +26,13 @@ namespace TextEditingProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        #region "Cunstactor"
+        #region "Constructors"
         public MainWindow()
         {
             InitializeComponent();
         }
-        #endregion
+
+        #endregion Constructors
         #region "Instances"
         private string _FolderPath;
         private Boolean _ReplaceText;
@@ -59,10 +62,14 @@ namespace TextEditingProject
         }
         #endregion
         #region "Command"
-        private AsyncCommand StartCommand => new AsyncCommand(() => Task.Factory.StartNew(StartProcess));
+        public AsyncCommand StartCommand => new AsyncCommand(() => Task.Factory.StartNew(StartProcess, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext()));
+ 
+        public AsyncCommand OpenExplorerCommand => new AsyncCommand(() => Task.Factory.StartNew(OpenExplorer, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext()));
+      
+        //public AsyncCommand Executecommand => new AsyncCommand(() => Task.Factory.StartNew(Execute, CancellationToken.None, TaskCreationOptions.None, TaskScheduler.FromCurrentSynchronizationContext()));
         #endregion
         #region "Functions"
-        private void btOpenExplorer_Click(object sender, RoutedEventArgs e)
+        private void OpenExplorer()
         {
             WinForms.FolderBrowserDialog fd = new WinForms.FolderBrowserDialog();
             if (Directory.Exists(FolderDirctory.Text))
@@ -96,6 +103,13 @@ namespace TextEditingProject
             }
             else throw new Exception(" Path Is Empty ");
         }
+
+
         #endregion
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = this;
+        }
     }
 }

@@ -46,11 +46,8 @@
     <Reference Include="Castle.Windsor, Version=5.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <HintPath>..\packages\Castle.Windsor.5.0.0\lib\net45\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="DevExpress.Mvvm">
-      <HintPath>..\packages\DevExpress.Mvvm.dll</HintPath>
-    </Reference>
-    <Reference Include="DevExpress.Mvvm.UI">
-      <HintPath>..\packages\DevExpress.Mvvm.UI.dll</HintPath>
+    <Reference Include="DevExpress.Mvvm.v18.2">
+      <HintPath>..\packages\DevExpress.Mvvm.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -169,7 +166,9 @@
     <Compile Include="Components\EditeFilesHelper.cs" />
     <Compile Include="Components\WaitCursor.cs" />
     <Compile Include="DIInterfaces\IAutofacDI.cs" />
+    <Compile Include="DIInterfaces\IMSDI.cs" />
     <Compile Include="DI\AutofacDI.cs" />
+    <Compile Include="DI\MSDI.cs" />
     <Compile Include="Interfaces\IDirctoriesHelper.cs" />
     <Compile Include="Interfaces\IEditeFilesHelper.cs" />
     <Compile Include="Interfaces\IEditeText.cs" />

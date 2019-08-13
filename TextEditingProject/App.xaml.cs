@@ -14,6 +14,7 @@ namespace TextEditingProject
     public partial class App : Application
     {
 
-        int x = 0;
+    
+ 
     }
 }

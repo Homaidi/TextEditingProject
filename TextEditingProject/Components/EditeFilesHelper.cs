@@ -17,7 +17,7 @@ namespace TextEditingProject.Components
         private IContainer Container { get; set; }
         private IAutofacDI autofacDI = new AutofacDI();
         public EditeFilesHelper(params object[] args)
-        {
+        {Container = autofacDI.GetAutofacContainer();
             this.args = args;
             Container = autofacDI.GetAutofacContainer();
         }

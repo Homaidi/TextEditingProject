@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,10 +24,13 @@ namespace TextEditingProject.Components
 
         private List<string> DirctoriesList = new List<string>();
         private List<string> FilesList = new List<string>();
+        private Dictionary<string, List<string>> DirctoriesAndFilesList = new Dictionary<string, List<string>>();
 
         private IContainer Container { get; set; }
         private IAutofacDI autofacDI = new AutofacDI();
-        #region "Construct"
+        private IServiceProvider ServiceProvider { get; set; }
+        private IMSDI MSDI = new MSDI();
+        #region "Constructors"
         public EditeText(params object[] args)
         {
             Input_FolderPath = args[0].ToString();
@@ -41,7 +45,9 @@ namespace TextEditingProject.Components
         {
             if (Directory.Exists(Input_FolderPath))
             {
-                if(Input_ReplaceText)
+                Container = autofacDI.GetAutofacContainer();
+                ServiceProvider = MSDI.GetIMSDIServiceProvider();
+                if (Input_ReplaceText)
                 { ReplaceText(); }
 
             }
@@ -52,18 +58,24 @@ namespace TextEditingProject.Components
         private void ReplaceText()
         {
             FillFilesWithenDirctoriesList();
-            FillDirctoriesList();
-            foreach (var Dirctory in DirctoriesList)
+            var ReverseFilesWithenDirctoriesList = DirctoriesAndFilesList.Reverse();
+            //FillDirctoriesList();
+            foreach (var Dirctory in ReverseFilesWithenDirctoriesList)
             {
-                FillFilesList(Dirctory);
-                foreach (var _File in FilesList)
+                //FillFilesList(Dirctory);
+                foreach (var _File in Dirctory.Value)
                 {
                     string _Extension = Path.GetExtension(_File);
                     string _FileName = Path.GetFileNameWithoutExtension(_File);
                     string _Path = Path.GetDirectoryName(_File);
-                    _FileName.Replace(Input_TextReplace, Input_TextReplaceWith);
-                    if(_FileName.Length > 0)
-                    File.Move(_File, Path.Combine(_Path, _FileName.Trim() + _Extension));
+                    _FileName= _FileName.Replace(Input_TextReplace, Input_TextReplaceWith);
+                    if (_FileName.Length > 0)
+                        try
+                        {
+                            File.Move(_File, Path.Combine(_Path, _FileName.Trim() + _Extension));
+                        }
+                        catch { }
+
                 }
             }
         }
@@ -92,9 +104,16 @@ namespace TextEditingProject.Components
             using (var Scope = Container.BeginLifetimeScope())
             {
                 var DirctoriesHelper = Scope.Resolve<IDirctoriesHelper>();
-                DirctoriesList = DirctoriesHelper.GetDirctoriesAndFiles(this.Input_FolderPath);
+                DirctoriesAndFilesList = DirctoriesHelper.GetDirctoriesAndFiles(this.Input_FolderPath);
           
             }
+            //var serviceScopeFactory = ServiceProvider.GetRequiredService<IServiceScopeFactory>();
+            //using (var scope = serviceScopeFactory.CreateScope())
+            //{
+            //    var DirctoriesHelper2 = ServiceProvider.GetService<IDirctoriesHelper>();
+            //    DirctoriesHelper2.GetDirctoriesAndFiles(this.Input_FolderPath);
+            //}
+             
         }
         #endregion
     }
