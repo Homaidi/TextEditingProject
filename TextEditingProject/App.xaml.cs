@@ -13,5 +13,8 @@ namespace TextEditingProject
     /// </summary>
     public partial class App : Application
     {
+
+    
+ 
     }
 }

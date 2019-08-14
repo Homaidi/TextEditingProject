@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextEditingProject"
         mc:Ignorable="d"
-        Title="Text Editor [By Homaidi]" Height="350" Width="525" Background="#FFF0F0F0">
- 
+        Title="Text Editor [By Homaidi]" Height="350" Width="525" Background="#FFF0F0F0" Loaded="Window_Loaded">
+  
     <Grid Margin="3 ">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -19,8 +20,8 @@
             <ColumnDefinition Width="auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBox IsReadOnly="True" Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Visibility="Visible" Text="{Binding FolderPath}" x:Name="FolderDirctory" Height="30" Margin="3" TextWrapping="NoWrap"  VerticalAlignment="Stretch"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  />
-        <Button Visibility="Visible"  Grid.Row="0"    x:Name="btOpenExplorer" Click="btOpenExplorer_Click" Content="Choose a Folder" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold" HorizontalAlignment="Stretch"   HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  BorderBrush="Black" Grid.Column="2" Foreground="White"/>
+        <TextBox IsReadOnly="False" Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Visibility="Visible" Text="{Binding FolderPath}" x:Name="FolderDirctory" Height="30" Margin="3" TextWrapping="NoWrap"  VerticalAlignment="Stretch"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  />
+        <Button Command="{Binding OpenExplorerCommand }" Visibility="Visible"  Grid.Row="0"    x:Name="btOpenExplorer"   Content="Choose a Folder" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold" HorizontalAlignment="Stretch"   HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  BorderBrush="Black" Grid.Column="2" Foreground="White"  />
 
 
         <Grid  Grid.Row="2" Margin="0"  UseLayoutRounding="False" IsHitTestVisible="True"   VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3"  >
@@ -33,10 +34,10 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"    ></RowDefinition>
             </Grid.RowDefinitions>
-            <CheckBox Grid.Column="0" Grid.Row="0"      Height="auto"   x:Name="chkTextToRemove" Content="Replace" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"  Foreground="#FF02A7D3" ></CheckBox>
-            <TextBox  Grid.Column="1" Grid.Row="0"      Visibility="Visible"      x:Name="txtTextToRemove" Margin="2"     Text=""     Height="26" VerticalAlignment="Top"     />
+            <CheckBox Grid.Column="0" Grid.Row="0"  IsChecked="{Binding ReplaceText}"    Height="auto"   x:Name="chkTextToRemove" Content="Replace" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"  Foreground="#FF02A7D3" ></CheckBox>
+            <TextBox  Grid.Column="1" Grid.Row="0"   Text="{Binding TextToReplace}"   Visibility="Visible"      x:Name="txtTextToReplace" Margin="2"         Height="26" VerticalAlignment="Top"     />
             <Label  Grid.Column="2" Grid.Row="0"      x:Name="lblTextToReplace" Content="With" HorizontalAlignment="Center" VerticalAlignment="Center"  Margin="0" FontSize="14" Foreground="#FF02A7D3"></Label>
-            <TextBox     Grid.Column="3" Grid.Row="0"    Visibility="Visible" Margin="2"    x:Name="txtTextToReplace"    Text=""    VerticalAlignment="Stretch" Height="Auto"     />
+            <TextBox     Grid.Column="3" Grid.Row="0" Text="{Binding TextToReplaceWith}"   Visibility="Visible" Margin="2"    x:Name="txtTextToReplaceWith"       VerticalAlignment="Stretch" Height="Auto"     />
         </Grid>
 
         <Grid  Grid.Row="3" Margin="0"  UseLayoutRounding="False" IsHitTestVisible="True"   VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="4"  >
@@ -55,6 +56,9 @@
             <CheckBox  Foreground="#FF02A7D3" Grid.Column="3" Grid.Row="0"      Height="auto"   x:Name="chkAddTextToEnd" Content="To End" HorizontalAlignment="Left" VerticalAlignment="Center"  Margin="5 3 3 3" FontSize="14"    ></CheckBox>
 
         </Grid>
+        <StackPanel Grid.Row="5" Grid.Column="0"  Grid.ColumnSpan="3" Orientation="Vertical"   HorizontalAlignment="Stretch" VerticalAlignment="Stretch"   Margin="0 0 0 0"   >
 
+            <Button Command="{Binding StartCommand}"         Content="Start" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold"     BorderBrush="Black"  Foreground="White" Cursor="Hand"    />
+        </StackPanel>
     </Grid>
 </Window>
