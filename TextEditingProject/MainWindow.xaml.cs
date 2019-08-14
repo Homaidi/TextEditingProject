@@ -77,6 +77,7 @@ namespace TextEditingProject
             if (fd.ShowDialog() == WinForms.DialogResult.OK)
             {
                 FolderDirctory.Text = fd.SelectedPath;
+                FolderPath = fd.SelectedPath;
             }
         }
 
@@ -110,6 +111,11 @@ namespace TextEditingProject
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = this;
+        }
+
+        private void btOpenExplorer_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
