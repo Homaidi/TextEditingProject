@@ -21,7 +21,7 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBox IsReadOnly="False" Grid.Row="0" Grid.Column="0"  Grid.ColumnSpan="2" Visibility="Visible" Text="{Binding FolderPath}" x:Name="FolderDirctory" Height="30" Margin="3" TextWrapping="NoWrap"  VerticalAlignment="Stretch"  HorizontalContentAlignment="Left"  VerticalContentAlignment="Center"  />
-        <Button Command="{Binding OpenExplorerCommand }" Visibility="Visible"  Grid.Row="0"    x:Name="btOpenExplorer"   Content="Choose a Folder" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold" HorizontalAlignment="Stretch"   HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  BorderBrush="Black" Grid.Column="2" Foreground="White"  />
+        <Button Command="{Binding OpenExplorerCommand }" Visibility="Visible"  Grid.Row="0"    x:Name="btOpenExplorer"   Content="Choose a Folder" Margin="3"  Background="#FF33B9DC" Height="30" FontSize="14"  FontWeight="Bold" HorizontalAlignment="Stretch"   HorizontalContentAlignment="Center"  VerticalContentAlignment="Center"  BorderBrush="Black" Grid.Column="2" Foreground="White" Click="btOpenExplorer_Click"  />
 
 
         <Grid  Grid.Row="2" Margin="0"  UseLayoutRounding="False" IsHitTestVisible="True"   VerticalAlignment="Stretch" Grid.Column="0" Grid.ColumnSpan="3"  >
